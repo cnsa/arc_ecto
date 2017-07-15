@@ -7,27 +7,27 @@ defmodule Arc.Ecto.Mixfile do
     [app: :arc_ecto,
      version: @version,
      elixir: "~> 1.0",
-     deps: deps,
+     deps: deps(),
 
     # Hex
-     description: description,
-     package: package]
+     description: description(),
+     package: package()]
   end
 
   # Configuration for the OTP application
   #
   # Type `mix help compile.app` for more information
-  def application do
+  def application() do
     [applications: [:logger]]
   end
 
-  defp description do
+  defp description() do
     """
     An integration with Arc and Ecto.
     """
   end
 
-  defp package do
+  defp package() do
     [maintainers: ["Sean Stavropoulos"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/stavro/arc_ecto"},
@@ -43,10 +43,10 @@ defmodule Arc.Ecto.Mixfile do
   #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
   #
   # Type `mix help deps` for more examples and options
-  defp deps do
+  defp deps() do
     [
       {:arc,  "~> 0.6.0"},
-      {:ecto, "~> 2.0"},
+      {:ecto, "~> 2.1"},
       {:mock, "~> 0.1.1", only: :test},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
