@@ -28,7 +28,7 @@ defmodule Arc.Ecto.Type do
         gsec
         |> String.to_integer()
         |> :calendar.gregorian_seconds_to_datetime()
-        |> NaiveDateTime.from_erl()
+        |> NaiveDateTime.from_erl!()
       _ ->
         nil
     end

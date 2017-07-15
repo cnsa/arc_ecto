@@ -14,13 +14,13 @@ defmodule ArcTest.Ecto.Type do
   end
 
   test "loads filenames with timestamp" do
-    timestamp = NaiveDateTime.from_erl({{1970, 1, 1}, {0, 0, 0}})
+    timestamp = NaiveDateTime.from_erl!({{1970, 1, 1}, {0, 0, 0}})
     {:ok, value} = DummyDefinition.Type.load("file.png?62167219200")
     assert value == %{file_name: "file.png", updated_at: timestamp}
   end
 
   test "loads pathological filenames" do
-    timestamp = NaiveDateTime.from_erl({{1970, 1, 1}, {0, 0, 0}})
+    timestamp = NaiveDateTime.from_erl!({{1970, 1, 1}, {0, 0, 0}})
     {:ok, value} = DummyDefinition.Type.load("image.php?62167219200")
     assert value == %{file_name: "image.php", updated_at: timestamp}
   end
